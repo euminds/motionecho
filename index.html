@@ -29,7 +29,7 @@
 
 
   <title>MotionEcho</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="static/images/NN.svg">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
 
@@ -79,7 +79,7 @@
                               <span class="author-block">
                                 <a href="https://cshen.github.io/" target="_blank">Chunhua Shen</a><sup>4</sup>,</span>
                                 <span class="author-block">
-                                  <a href="https://donggong1.github.io/" target="_blank">Dong Gong</a><sup>2</sup>,</span>
+                                  <a href="https://donggong1.github.io/" target="_blank">Dong Gong</a><sup>2,†</sup></span>
                             </span>
                           </span>
                         </span>
@@ -129,7 +129,7 @@
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code(Comming soon)</span>
+                    <span>Code(Coming soon)</span>
                   </a>
                 </span>
 
@@ -202,20 +202,20 @@
 
     <div style="text-align: center;">
         <p style="font-family: 'Segoe Print', sans-serif;">
-          Source Video <span style="color: red;">(Dolly Zoom)</span>
+          Source Video <span style="color: red;">(Orbit Shot)</span>
         </p>
 <!--         <img src="static/images/0.gif" alt="MY ALT TEXT" style="margin: 0 10px; width: 400px;"/> -->
         <video poster="" id="tree" autoplay controls muted loop style="width: 400px;">
         <!-- Your video here -->
-        <source src="static/videos/01.mp4" type="video/mp4">
+        <source src="static/videos/camera_1.mp4" type="video/mp4">
         </video>
       </div>
       <div style="text-align: center;">
-        <p style="font-family: 'Segoe Print', sans-serif;">"A firefighter standing in front of a burning forest."</p>
+        <p style="font-family: 'Segoe Print', sans-serif;">"A island, on the ocean, sunny day."</p>
 <!--         <img src="static/images/0.gif" alt="MY ALT TEXT" style="margin: 0 10px; width: 400px;"/> -->
         <video poster="" id="tree" autoplay controls muted loop style="width: 400px;">
         <!-- Your video here -->
-        <source src="static/videos/A_firefighter_standing_in_front_of_a_burning_forest_captured_with_a_dolly_zoom_923527.mp4" type="video/mp4">
+        <source src="static/videos/A_island,_on_the_ocean,_sunny_day_2025.mp4" type="video/mp4">
         </video>
       </div>
 
@@ -379,13 +379,6 @@
           <h2 class="title is-3">Pipeline</h2>
           <div class="content has-text-justified">
             <p>
-              <!-- In this research, we present a novel approach to motion customization in video generation, addressing the widespread gap in the thorough exploration of motion representation within video generative models. Recognizing the unique challenges posed by video's spatiotemporal nature, our method introduces **Motion Embeddings**, a set of explicit, temporally coherent one-dimensional embeddings derived from a given video. These embeddings are designed to integrate seamlessly with the temporal transformer modules of video diffusion models, modulating self-attention computations across frames without compromising spatial integrity. Our approach offers a compact and efficient solution to motion representation and enables complex manipulations of motion characteristics through vector arithmetic in the embedding space. Furthermore, we identify the Temporal Discrepancy in video generative models, which refers to variations in how different motion modules process temporal relationships between frames. We leverage this understanding to optimize the integration of our motion embeddings. Our contributions include the introduction of a tailored motion embedding for customization tasks, insights into the temporal processing differences in video models, and a demonstration of the practical advantages and effectiveness of our method through extensive experiments. -->
-              <!-- <strong>Left:</strong> For the Motion Query-Key Embedding, which influences the attention map, we exclude the spatial dimensions. 
-              Including them would cause the attention map between frames to capture the object's shape 
-              (e.g., the shape of the tank in the original video is visible in the attention map). 
-              <strong>Right:</strong> Following the concept of optical flow, 
-              we apply a differential operation to the Spatial-2D Motion Value Embedding, 
-              removing static appearance and preserving dynamic motion.     -->
               In MotionEcho pipeline, given a reference video, motion priors are extracted to initialize the student model with a motion-preserving noisy latent. 
               During inference, the teacher (top) and student (bottom) models perform motion customization using motion loss gradients. 
               Teacher guidance is applied via prediction interpolation at sub-interval endpoints. 
@@ -403,8 +396,20 @@
     <div class="container is-max-desktop", style="margin-top: 40px;">
       <div class="hero-body">
         <h2 class="subtitle has-text-centered">
-          <strong style="font-size: 28px;">Qualitative results</strong><br> 
+          <strong style="font-size: 28px;">Qualitative Evaluation</strong><br> 
         </h2>
+        <div class="content has-text-justified">
+          <p>
+            We directly apply existing zero-shot motion customization methods (e.g., MotionClone) to a distilled, fast T2V model (such as T2V-Turbo-V2), which is called <strong>MotionClone + T2V-Turbo-V2</strong>. 
+            The results reveal significant shortcomings: the generated videos exhibit temporal inconsistencies, motion artifacts, and misinterpretations. For instance, in the example of aligning the head movements of a fox and a dog, the fox's head does not follow the reference motion of the dog. 
+            In contrast, our proposed <strong>MotionEcho</strong> method achieves unified and accurate transfer of both object and camera motion, delivering higher motion fidelity while maintaining low inference time.
+          </p>
+          <p>
+            <strong>Legend:</strong>
+            <span style="color: rgb(0, 255, 157);">Green prompt</span> denotes <strong>MotionEcho</strong>;
+            <span style="color: rgb(55, 0, 255);">Blue prompt</span> denotes <strong>MotionClone + T2V-Turbo-V2</strong>.
+          </p>
+        </div>
       </div>
     </div>
   
@@ -436,11 +441,24 @@
           
         </div>
         <div style="text-align: center;">
-          <p style="font-family: 'Segoe Print', sans-serif;">"A island, on the ocean, sunny day."</p>
+          <p style="font-family: 'Segoe Print', sans-serif;color: rgb(0, 255, 157);">"A island, on the ocean, sunny day."
+            <!-- <span style="color: rgb(0, 255, 157);">(MotionEcho)</span> -->
+          </p>
   <!--         <img src="static/images/0.gif" alt="MY ALT TEXT" style="margin: 0 10px; width: 400px;"/> -->
           <video poster="" id="tree" autoplay controls muted loop style="width: 400px;">
           <!-- Your video here -->
           <source src="static/videos/A_island,_on_the_ocean,_sunny_day_2025.mp4" type="video/mp4">
+          </video>
+          
+        </div>
+        <div style="text-align: center;">
+          <p style="font-family: 'Segoe Print', sans-serif;color: rgb(55, 0, 255);">"A island, on the ocean, sunny day."
+            <!-- <span style="color: rgb(55, 0, 255);">(MC)</span> -->
+          </p>
+  <!--         <img src="static/images/0.gif" alt="MY ALT TEXT" style="margin: 0 10px; width: 400px;"/> -->
+          <video poster="" id="tree" autoplay controls muted loop style="width: 400px;">
+          <!-- Your video here -->
+          <source src="static/videos/A_island,_on_the_ocean,_sunny_day_2025_motionclone.mp4" type="video/mp4">
           </video>
           
         </div>
@@ -454,13 +472,26 @@
           
         </div>
         <div style="text-align: center;">
-          <p style="font-family: 'Segoe Print', sans-serif;">"A fox sitting in a snowy mountain."</p>
+          <p style="font-family: 'Segoe Print', sans-serif;color: rgb(0, 255, 157);">"A fox sitting in a snowy mountain."
+            <!-- <span style="color: rgb(0, 255, 157);">(MotionEcho)</span> -->
+          </p>
   <!--         <img src="static/images/0.gif" alt="MY ALT TEXT" style="margin: 0 10px; width: 400px;"/> -->
           <video poster="" id="tree" autoplay controls muted loop style="width: 400px;">
           <!-- Your video here -->
           <source src="static/videos/A_fox_sitting_in_a_snowy_mountain_936920.mp4" type="video/mp4">
           </video>
   
+        </div>
+        <div style="text-align: center;">
+          <p style="font-family: 'Segoe Print', sans-serif;color: rgb(55, 0, 255);">"A fox sitting in a snowy mountain."
+            <!-- <span style="color: rgb(55, 0, 255);">(MC)</span> -->
+          </p>
+  <!--         <img src="static/images/0.gif" alt="MY ALT TEXT" style="margin: 0 10px; width: 400px;"/> -->
+          <video poster="" id="tree" autoplay controls muted loop style="width: 400px;">
+          <!-- Your video here -->
+          <source src="static/videos/A_fox_sitting_in_a_snowy_mountain_936920_motionclone.mp4" type="video/mp4">
+          </video>
+          
         </div>
       </div>
     </div>
@@ -481,11 +512,24 @@
           
         </div>
         <div style="text-align: center;">
-          <p style="font-family: 'Segoe Print', sans-serif;">"desert is captured with a pan left camera."</p>
+          <p style="font-family: 'Segoe Print', sans-serif;color: rgb(0, 255, 157);">"desert is captured with a pan left camera."
+            <!-- <span style="color: rgb(0, 255, 157);">(MotionEcho)</span> -->
+          </p>
   <!--         <img src="static/images/0.gif" alt="MY ALT TEXT" style="margin: 0 10px; width: 400px;"/> -->
           <video poster="" id="tree" autoplay controls muted loop style="width: 400px;">
           <!-- Your video here -->
           <source src="static/videos/desert_captured_with_a_pan_left_679589.mp4" type="video/mp4">
+          </video>
+          
+        </div>
+        <div style="text-align: center;">
+          <p style="font-family: 'Segoe Print', sans-serif;color: rgb(55, 0, 255);">"desert is captured with a pan left camera."
+            <!-- <span style="color: rgb(55, 0, 255);">(MC)</span> -->
+          </p>
+  <!--         <img src="static/images/0.gif" alt="MY ALT TEXT" style="margin: 0 10px; width: 400px;"/> -->
+          <video poster="" id="tree" autoplay controls muted loop style="width: 400px;">
+          <!-- Your video here -->
+          <source src="static/videos/desert_captured_with_a_pan_left_679589_motionclone.mp4" type="video/mp4">
           </video>
           
         </div>
@@ -499,11 +543,24 @@
           
         </div>
         <div style="text-align: center;">
-          <p style="font-family: 'Segoe Print', sans-serif;">"Monkeys play with coconuts."</p>
+          <p style="font-family: 'Segoe Print', sans-serif;color: rgb(0, 255, 157);">"Monkeys play with coconuts."
+            <!-- <span style="color: rgb(0, 255, 157);">(MotionEcho)</span> -->
+          </p>
   <!--         <img src="static/images/0.gif" alt="MY ALT TEXT" style="margin: 0 10px; width: 400px;"/> -->
           <video poster="" id="tree" autoplay controls muted loop style="width: 400px;">
           <!-- Your video here -->
           <source src="static/videos/Monkeys_playing_with_coconuts_569328.mp4" type="video/mp4">
+          </video>
+  
+        </div>
+        <div style="text-align: center;">
+          <p style="font-family: 'Segoe Print', sans-serif;color: rgb(55, 0, 255);">"Monkeys play with coconuts."
+            <!-- <span style="color: rgb(55, 0, 255);">(MC)</span> -->
+          </p>
+  <!--         <img src="static/images/0.gif" alt="MY ALT TEXT" style="margin: 0 10px; width: 400px;"/> -->
+          <video poster="" id="tree" autoplay controls muted loop style="width: 400px;">
+          <!-- Your video here -->
+          <source src="static/videos/Monkeys_playing_with_coconuts_569328_motionclone.mp4" type="video/mp4">
           </video>
   
         </div>
@@ -524,7 +581,9 @@
           
         </div>
         <div style="text-align: center;">
-          <p style="font-family: 'Segoe Print', sans-serif;">"snowy filed is captured with a tilt up camera."</p>
+          <p style="font-family: 'Segoe Print', sans-serif;color: rgb(0, 255, 157);">"snowy filed is captured with a tilt up camera."
+            <!-- <span style="color: rgb(0, 255, 157);">(MotionEcho)</span> -->
+          </p>
   <!--         <img src="static/images/0.gif" alt="MY ALT TEXT" style="margin: 0 10px; width: 400px;"/> -->
           <video poster="" id="tree" autoplay controls muted loop style="width: 400px;">
           <!-- Your video here -->
@@ -532,6 +591,18 @@
           </video>
           
         </div>
+        <div style="text-align: center;">
+          <p style="font-family: 'Segoe Print', sans-serif;color: rgb(55, 0, 255);">"snowy filed is captured with a tilt up camera."
+            <!-- <span style="color: rgb(55, 0, 255);">(MC)</span> -->
+          </p>
+  <!--         <img src="static/images/0.gif" alt="MY ALT TEXT" style="margin: 0 10px; width: 400px;"/> -->
+          <video poster="" id="tree" autoplay controls muted loop style="width: 400px;">
+          <!-- Your video here -->
+          <source src="static/videos/snowy_filed_captured_with_a_tilt_up_739195_motionclone.mp4" type="video/mp4">
+          </video>
+          
+        </div>
+
         <div style="text-align: center;">
           <p style="font-family: 'Segoe Print', sans-serif;">Source Video</p>
   <!--         <img src="static/images/0.gif" alt="MY ALT TEXT" style="margin: 0 10px; width: 400px;"/> -->
@@ -542,11 +613,24 @@
           
         </div>
         <div style="text-align: center;">
-          <p style="font-family: 'Segoe Print', sans-serif;">"Snowflakes falling in the wind."</p>
+          <p style="font-family: 'Segoe Print', sans-serif;color: rgb(0, 255, 157);">"Snowflakes falling in the wind."
+            <!-- <span style="color: rgb(0, 255, 157);">(MotionEcho)</span> -->
+          </p>
   <!--         <img src="static/images/0.gif" alt="MY ALT TEXT" style="margin: 0 10px; width: 400px;"/> -->
           <video poster="" id="tree" autoplay controls muted loop style="width: 400px;">
           <!-- Your video here -->
           <source src="static/videos/Snowflakes_falling_in_the_wind._9101.mp4" type="video/mp4">
+          </video>
+  
+        </div>
+        <div style="text-align: center;">
+          <p style="font-family: 'Segoe Print', sans-serif;color: rgb(55, 0, 255);">"Snowflakes falling in the wind."
+            <!-- <span style="color: rgb(55, 0, 255);">(MC)</span> -->
+          </p>
+  <!--         <img src="static/images/0.gif" alt="MY ALT TEXT" style="margin: 0 10px; width: 400px;"/> -->
+          <video poster="" id="tree" autoplay controls muted loop style="width: 400px;">
+          <!-- Your video here -->
+          <source src="static/videos/Snowflakes_falling_in_the_wind._9101_motionclone.mp4" type="video/mp4">
           </video>
   
         </div>
@@ -594,14 +678,15 @@
   <div class="container is-max-desktop", style="margin-top: 40px;">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">MotionEcho for TurboV2 16 steps, 8 steps, 4 steps and AD-L 8 steps, 4 steps
+        <h2 class="title is-3">MotionEcho for TurboV2 16 steps, 8 steps, 4 steps 
+          <!-- and AD-L 8 steps, 4 steps -->
         </h2>
         <div class="content has-text-justified">
-          <p>
-            Our method functionally is a training-free framework that introduces test-time motion customization via teacher-guided distillation during inference. 
-            This means our method can be easily applied to many different video generative models using common techniques. 
-            <br>
-            The first three slides are based on Turbov2, and the last slide is based on AnimateDiff-Lighting.
+          <!-- <p> -->
+            <!-- Our method functionally is a training-free framework that introduces test-time motion customization via teacher-guided distillation during inference. 
+            This means our method can be easily applied to many different video generative models using common techniques.  -->
+            <!-- <br>
+            The first three slides are based on Turbov2, and the last slide is based on AnimateDiff-Lighting. -->
         </div>
       </div>
     </div>
@@ -612,16 +697,16 @@
       <div class="carousel-item active">
         <div class="col-6 d-flex flex-column align-items-center">
           <video class="me-2" width="200" controls autoplay muted loop>
-            <source src="static/videos/01.mp4" type="video/mp4">
+            <source src="static/videos/camera_07.mp4" type="video/mp4">
           </video>
           <video class="me-2" width="200" controls autoplay muted loop>
-            <source src="static/videos/A_Roman_soldier_standing_in_front_of_the_Colosseum_captured_with_a_dolly_zoom._79854_16steps.mp4" type="video/mp4">
+            <source src="static/videos/A_lion_sitting_on_top_of_a_cliff_captured_with_a_zoom_out_692512_16steps.mp4" type="video/mp4">
           </video>
           <video class="me-2" width="200" controls autoplay muted loop>
-            <source src="static/videos/A_Roman_soldier_standing_in_front_of_the_Colosseum_captured_with_a_dolly_zoom._79854_8steps.mp4" type="video/mp4">
+            <source src="static/videos/A_lion_sitting_on_top_of_a_cliff_captured_with_a_zoom_out_692512_8steps.mp4" type="video/mp4">
           </video>
           <video class="me-2" width="200" controls autoplay muted loop>
-            <source src="static/videos/A_Roman_soldier_standing_in_front_of_the_Colosseum_captured_with_a_dolly_zoom._79854_4steps.mp4" type="video/mp4">
+            <source src="static/videos/A_lion_sitting_on_top_of_a_cliff_captured_with_a_zoom_out_692512_4steps.mp4" type="video/mp4">
           </video>
         </div>
         <div class="col-6 d-flex flex-column align-items-center">
@@ -707,36 +792,119 @@
       </div>
     </div>
     <div class="carousel-inner">
-      <!-- Last Slide -->
       <div class="carousel-item active">
         <div class="col-6 d-flex flex-column align-items-center">
           <video class="me-2" width="200" controls autoplay muted loop>
-            <source src="static/videos/camera_1_sampled.mp4" type="video/mp4">
+            <source src="static/videos/hybrid_03.mp4" type="video/mp4">
           </video>
           <video class="me-2" width="200" controls autoplay muted loop>
-            <source src="static/videos/camera_1_A_island,_on_the_ocean,_sunny_day_2025_8steps.mp4" type="video/mp4">
+            <source src="static/videos/A_motorbike_driving_in_a_forest_507767_16steps.mp4" type="video/mp4">
           </video>
           <video class="me-2" width="200" controls autoplay muted loop>
-            <source src="static/videos/camera_1_A_island,_on_the_ocean,_sunny_day_2025_4steps.mp4" type="video/mp4">
+            <source src="static/videos/A_motorbike_driving_in_a_forest_507767_8steps.mp4" type="video/mp4">
+          </video>
+          <video class="me-2" width="200" controls autoplay muted loop>
+            <source src="static/videos/A_motorbike_driving_in_a_forest_507767_4steps.mp4" type="video/mp4">
           </video>
         </div>
         <div class="col-6 d-flex flex-column align-items-center">
           <video class="me-2" width="200" controls autoplay muted loop>
-            <source src="static/videos/sample_astronaut_sampled.mp4" type="video/mp4">
+            <source src="static/videos/sample_cat.mp4" type="video/mp4">
           </video>
           <video class="me-2" width="200" controls autoplay muted loop>
-            <source src="static/videos/sample_astronaut_Robot,_walks_in_the_street._59_8steps.mp4" type="video/mp4">
+            <source src="static/videos/Tiger,_raises_its_head._2025_16steps.mp4" type="video/mp4">
           </video>
           <video class="me-2" width="200" controls autoplay muted loop>
-            <source src="static/videos/sample_astronaut_Robot,_walks_in_the_street._59_4steps.mp4" type="video/mp4">
+            <source src="static/videos/Tiger,_raises_its_head._2025_8steps.mp4" type="video/mp4">
+          </video>
+          <video class="me-2" width="200" controls autoplay muted loop>
+            <source src="static/videos/Tiger,_raises_its_head._2025_4steps.mp4" type="video/mp4">
           </video>
         </div>
       </div>
     </div>      
   </div>
   <br>
-
 </section>
+
+
+<section class="teaser">
+  <div class="container is-max-desktop", style="margin-top: 40px;">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">MotionEcho for AD-L 8 steps, 4 steps 
+        </h2>
+        <div class="content has-text-justified">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="videoCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <!-- <div class="carousel-item active"> -->
+          <div class="carousel-item active d-flex justify-content-center">
+          <video class="mx-2" width="200" controls autoplay muted loop>
+            <source src="static/videos/camera_1_sampled_original_size.mp4" type="video/mp4">
+          </video>
+          <video class="mx-2" width="200" controls autoplay muted loop>
+            <source src="static/videos/camera_1_A_island,_on_the_ocean,_sunny_day_2025_8steps.mp4" type="video/mp4">
+          </video>
+          <video class="mx-2" width="200" controls autoplay muted loop>
+            <source src="static/videos/camera_1_A_island,_on_the_ocean,_sunny_day_2025_4steps.mp4" type="video/mp4">
+          </video>
+        </div>
+      <!-- </div> -->
+    </div> 
+    <div class="carousel-inner">
+      <!-- <div class="carousel-item active"> -->
+        <div class="carousel-item active d-flex justify-content-center">
+          <video class="mx-2" width="200" controls autoplay muted loop>
+            <source src="static/videos/sample_astronaut_original_size.mp4" type="video/mp4">
+          </video>
+          <video class="mx-2" width="200" controls autoplay muted loop>
+            <source src="static/videos/sample_astronaut_Robot,_walks_in_the_street._59_8steps.mp4" type="video/mp4">
+          </video>
+          <video class="mx-2" width="200" controls autoplay muted loop>
+            <source src="static/videos/sample_astronaut_Robot,_walks_in_the_street._59_4steps.mp4" type="video/mp4">
+          </video>
+        </div>
+      <!-- </div> -->
+    </div> 
+    <div class="carousel-inner">
+      <!-- <div class="carousel-item active"> -->
+        <div class="carousel-item active d-flex justify-content-center">
+          <video class="mx-2" width="200" controls autoplay muted loop>
+            <source src="static/videos/sample_cat_original_size.mp4" type="video/mp4">
+          </video>
+          <video class="mx-2" width="200" controls autoplay muted loop>
+            <source src="static/videos/sample_cat_Tiger,_raises_its_head._2025_8steps.mp4" type="video/mp4">
+          </video>
+          <video class="mx-2" width="200" controls autoplay muted loop>
+            <source src="static/videos/sample_cat_Tiger,_raises_its_head._2025_4steps.mp4" type="video/mp4">
+          </video>
+        </div>
+      <!-- </div> -->
+    </div>
+    <div class="carousel-inner">
+      <!-- <div class="carousel-item active"> -->
+        <div class="carousel-item active d-flex justify-content-center">
+          <video class="mx-2" width="200" controls autoplay muted loop>
+            <source src="static/videos/camera_pan_down_original_size.mp4" type="video/mp4">
+          </video>
+          <video class="mx-2" width="200" controls autoplay muted loop>
+            <source src="static/videos/camera_pan_down_A_fox_perched_atop_a_wooden_fence_2025_8steps.mp4" type="video/mp4">
+          </video>
+          <video class="mx-2" width="200" controls autoplay muted loop>
+            <source src="static/videos/camera_pan_down_A_fox_perched_atop_a_wooden_fence_2025_4steps.mp4" type="video/mp4">
+          </video>
+        </div>
+      <!-- </div> -->
+    </div>      
+  </div>
+  <br>
+</section>
+
+
 
 
 
