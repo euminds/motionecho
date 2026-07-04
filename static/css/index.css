@@ -206,6 +206,13 @@ a:hover {
   font-weight: 600;
 }
 
+.publication-venue {
+  margin: 0.85rem auto 0;
+  color: #0f3f47;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
 .publication-links {
   margin-top: 1.25rem;
 }
