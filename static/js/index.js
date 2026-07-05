@@ -58,8 +58,7 @@ $(document).ready(function() {
     	});
     }
 
-    var motionCarousel = document.querySelector('#videoCarousel.motion-carousel');
-    if (motionCarousel) {
+    document.querySelectorAll('.motion-carousel').forEach(function(motionCarousel) {
       var slides = Array.from(motionCarousel.querySelectorAll('.carousel-inner'));
       var prevButton = motionCarousel.querySelector('.motion-carousel-prev');
       var nextButton = motionCarousel.querySelector('.motion-carousel-next');
@@ -98,7 +97,7 @@ $(document).ready(function() {
       }
 
       showMotionSlide(currentSlide);
-    }
+    });
 
     /*var player = document.getElementById('interpolation-video');
     player.addEventListener('loadedmetadata', function() {

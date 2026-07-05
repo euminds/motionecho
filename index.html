@@ -39,14 +39,14 @@
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
   <link rel="stylesheet"
   href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/index.css?v=20260704-eccv-venue">
+  <link rel="stylesheet" href="static/css/index.css?v=20260705-dit-examples">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js?v=20260704-turbo-labels"></script>
+  <script src="static/js/index.js?v=20260705-dit-examples"></script>
 </head>
 <body>
 
@@ -701,413 +701,312 @@
 
 
 
-<section class="teaser">
-  <div class="container is-max-desktop", style="margin-top: 40px;">
+<section class="teaser example-section">
+  <div class="container is-max-desktop" style="margin-top: 40px;">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">MotionEcho for TurboV2 16 steps, 8 steps, 4 steps
-          <!-- and AD-L 8 steps, 4 steps -->
-        </h2>
-        <div class="content has-text-justified">
-          <!-- <p> -->
-            <!-- Our method functionally is a training-free framework that introduces test-time motion customization via teacher-guided distillation during inference.
-            This means our method can be easily applied to many different video generative models using common techniques.  -->
-            <!-- <br>
-            The first three slides are based on Turbov2, and the last slide is based on AnimateDiff-Lighting. -->
-        </div>
+        <h2 class="title is-3">MotionEcho for TurboV2 16 steps, 8 steps, 4 steps</h2>
       </div>
     </div>
   </div>
-  <div id="videoCarousel" class="motion-carousel" aria-label="TurboV2 MotionEcho examples">
+  <div id="turboCarousel" class="motion-carousel example-carousel" aria-label="TurboV2 MotionEcho examples">
     <button class="motion-carousel-button motion-carousel-prev" type="button" aria-label="Previous TurboV2 example">&#9664;</button>
     <div class="motion-carousel-track">
-    <div class="carousel-inner is-active">
-      <!-- First Slide -->
-      <div class="carousel-item active">
-        <div class="col-6 d-flex flex-column align-items-center">
-          <div class="turbo-video-cell">
-
-            <p>Reference</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/camera_07.mp4" type="video/mp4">
-
-            </video>
-
+      <div class="carousel-inner is-active">
+        <article class="dit-example-card">
+          <div class="dit-example-header">
+            <div>
+              <span class="dit-model-tag">TurboV2</span>
+              <h3>A lion sitting on top of a cliff captured with a zoom out.</h3>
+            </div>
+            <div class="dit-reference-card">
+              <p>Reference Video</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/camera_07.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
-          <div class="turbo-video-cell">
-
-            <p>16 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/A_lion_sitting_on_top_of_a_cliff_captured_with_a_zoom_out_692512_16steps.mp4" type="video/mp4">
-
-            </video>
-
+          <div class="step-comparison-grid step-comparison-grid--three">
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 16 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/A_lion_sitting_on_top_of_a_cliff_captured_with_a_zoom_out_692512_16steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 8 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/A_lion_sitting_on_top_of_a_cliff_captured_with_a_zoom_out_692512_8steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 4 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/A_lion_sitting_on_top_of_a_cliff_captured_with_a_zoom_out_692512_4steps.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
-          <div class="turbo-video-cell">
-
-            <p>8 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/A_lion_sitting_on_top_of_a_cliff_captured_with_a_zoom_out_692512_8steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-          <div class="turbo-video-cell">
-
-            <p>4 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/A_lion_sitting_on_top_of_a_cliff_captured_with_a_zoom_out_692512_4steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-        </div>
-        <div class="col-6 d-flex flex-column align-items-center">
-          <div class="turbo-video-cell">
-
-            <p>Reference</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/02.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-          <div class="turbo-video-cell">
-
-            <p>16 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/A_dolphin_jumping_into_the_ocean_501348_16steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-          <div class="turbo-video-cell">
-
-            <p>8 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/A_dolphin_jumping_into_the_ocean_501348_8steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-          <div class="turbo-video-cell">
-
-            <p>4 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/A_dolphin_jumping_into_the_ocean_501348_4steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-        </div>
+        </article>
       </div>
-    </div>
-    <div class="carousel-inner">
-      <!-- Second Slide -->
-      <div class="carousel-item active">
-        <div class="col-6 d-flex flex-column align-items-center">
-          <div class="turbo-video-cell">
 
-            <p>Reference</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/hybrid_06.mp4" type="video/mp4">
-
-            </video>
-
+      <div class="carousel-inner">
+        <article class="dit-example-card">
+          <div class="dit-example-header">
+            <div>
+              <span class="dit-model-tag">TurboV2</span>
+              <h3>A dolphin jumping into the ocean.</h3>
+            </div>
+            <div class="dit-reference-card">
+              <p>Reference Video</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/02.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
-          <div class="turbo-video-cell">
-
-            <p>16 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/A_ship_sailing_on_the_sea_132352_16steps.mp4" type="video/mp4">
-
-            </video>
-
+          <div class="step-comparison-grid step-comparison-grid--three">
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 16 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/A_dolphin_jumping_into_the_ocean_501348_16steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 8 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/A_dolphin_jumping_into_the_ocean_501348_8steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 4 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/A_dolphin_jumping_into_the_ocean_501348_4steps.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
-          <div class="turbo-video-cell">
-
-            <p>8 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/A_ship_sailing_on_the_sea_132352_8steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-          <div class="turbo-video-cell">
-
-            <p>4 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/A_ship_sailing_on_the_sea_132352_4steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-        </div>
-        <div class="col-6 d-flex flex-column align-items-center">
-          <div class="turbo-video-cell">
-
-            <p>Reference</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/hybrid_07.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-          <div class="turbo-video-cell">
-
-            <p>16 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/A_fish_swimming_in_the_lake_833647_16steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-          <div class="turbo-video-cell">
-
-            <p>8 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/A_fish_swimming_in_the_lake_833647_8steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-          <div class="turbo-video-cell">
-
-            <p>4 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/A_fish_swimming_in_the_lake_833647_4steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-        </div>
+        </article>
       </div>
-    </div>
-     <div class="carousel-inner">
-      <!-- Third Slide -->
-      <div class="carousel-item active">
-        <div class="col-6 d-flex flex-column align-items-center">
-          <div class="turbo-video-cell">
 
-            <p>Reference</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/object_06.mp4" type="video/mp4">
-
-            </video>
-
+      <div class="carousel-inner">
+        <article class="dit-example-card">
+          <div class="dit-example-header">
+            <div>
+              <span class="dit-model-tag">TurboV2</span>
+              <h3>A ship sailing on the sea.</h3>
+            </div>
+            <div class="dit-reference-card">
+              <p>Reference Video</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/hybrid_06.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
-          <div class="turbo-video-cell">
-
-            <p>16 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/a_boy_is_doing_jumping_jacks_395721_16steps.mp4" type="video/mp4">
-
-            </video>
-
+          <div class="step-comparison-grid step-comparison-grid--three">
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 16 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/A_ship_sailing_on_the_sea_132352_16steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 8 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/A_ship_sailing_on_the_sea_132352_8steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 4 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/A_ship_sailing_on_the_sea_132352_4steps.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
-          <div class="turbo-video-cell">
-
-            <p>8 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/a_boy_is_doing_jumping_jacks_395721_8steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-          <div class="turbo-video-cell">
-
-            <p>4 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/a_boy_is_doing_jumping_jacks_395721_4steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-        </div>
-        <div class="col-6 d-flex flex-column align-items-center">
-          <div class="turbo-video-cell">
-
-            <p>Reference</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/object_01.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-          <div class="turbo-video-cell">
-
-            <p>16 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/A_fox_sitting_in_a_snowy_mountain_936920.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-          <div class="turbo-video-cell">
-
-            <p>8 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/A_fox_sitting_in_a_snowy_mountain_936920_8steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-          <div class="turbo-video-cell">
-
-            <p>4 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/A_fox_sitting_in_a_snowy_mountain_936920_4steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-        </div>
+        </article>
       </div>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="col-6 d-flex flex-column align-items-center">
-          <div class="turbo-video-cell">
 
-            <p>Reference</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/hybrid_03.mp4" type="video/mp4">
-
-            </video>
-
+      <div class="carousel-inner">
+        <article class="dit-example-card">
+          <div class="dit-example-header">
+            <div>
+              <span class="dit-model-tag">TurboV2</span>
+              <h3>A fish swimming in the lake.</h3>
+            </div>
+            <div class="dit-reference-card">
+              <p>Reference Video</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/hybrid_07.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
-          <div class="turbo-video-cell">
-
-            <p>16 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/A_motorbike_driving_in_a_forest_507767_16steps.mp4" type="video/mp4">
-
-            </video>
-
+          <div class="step-comparison-grid step-comparison-grid--three">
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 16 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/A_fish_swimming_in_the_lake_833647_16steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 8 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/A_fish_swimming_in_the_lake_833647_8steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 4 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/A_fish_swimming_in_the_lake_833647_4steps.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
-          <div class="turbo-video-cell">
-
-            <p>8 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/A_motorbike_driving_in_a_forest_507767_8steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-          <div class="turbo-video-cell">
-
-            <p>4 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/A_motorbike_driving_in_a_forest_507767_4steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-        </div>
-        <div class="col-6 d-flex flex-column align-items-center">
-          <div class="turbo-video-cell">
-
-            <p>Reference</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/sample_cat.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-          <div class="turbo-video-cell">
-
-            <p>16 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/Tiger,_raises_its_head._2025_16steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-          <div class="turbo-video-cell">
-
-            <p>8 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/Tiger,_raises_its_head._2025_8steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-          <div class="turbo-video-cell">
-
-            <p>4 steps</p>
-
-            <video controls autoplay muted loop>
-
-              <source src="static/videos/Tiger,_raises_its_head._2025_4steps.mp4" type="video/mp4">
-
-            </video>
-
-          </div>
-        </div>
+        </article>
       </div>
-    </div>
+
+      <div class="carousel-inner">
+        <article class="dit-example-card">
+          <div class="dit-example-header">
+            <div>
+              <span class="dit-model-tag">TurboV2</span>
+              <h3>A boy is doing jumping jacks.</h3>
+            </div>
+            <div class="dit-reference-card">
+              <p>Reference Video</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/object_06.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="step-comparison-grid step-comparison-grid--three">
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 16 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/a_boy_is_doing_jumping_jacks_395721_16steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 8 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/a_boy_is_doing_jumping_jacks_395721_8steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 4 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/a_boy_is_doing_jumping_jacks_395721_4steps.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="carousel-inner">
+        <article class="dit-example-card">
+          <div class="dit-example-header">
+            <div>
+              <span class="dit-model-tag">TurboV2</span>
+              <h3>A fox sitting in a snowy mountain.</h3>
+            </div>
+            <div class="dit-reference-card">
+              <p>Reference Video</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/object_01.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="step-comparison-grid step-comparison-grid--three">
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 16 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/A_fox_sitting_in_a_snowy_mountain_936920.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 8 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/A_fox_sitting_in_a_snowy_mountain_936920_8steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 4 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/A_fox_sitting_in_a_snowy_mountain_936920_4steps.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="carousel-inner">
+        <article class="dit-example-card">
+          <div class="dit-example-header">
+            <div>
+              <span class="dit-model-tag">TurboV2</span>
+              <h3>A motorbike driving in a forest.</h3>
+            </div>
+            <div class="dit-reference-card">
+              <p>Reference Video</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/hybrid_03.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="step-comparison-grid step-comparison-grid--three">
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 16 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/A_motorbike_driving_in_a_forest_507767_16steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 8 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/A_motorbike_driving_in_a_forest_507767_8steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 4 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/A_motorbike_driving_in_a_forest_507767_4steps.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="carousel-inner">
+        <article class="dit-example-card">
+          <div class="dit-example-header">
+            <div>
+              <span class="dit-model-tag">TurboV2</span>
+              <h3>Tiger raises its head.</h3>
+            </div>
+            <div class="dit-reference-card">
+              <p>Reference Video</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/sample_cat.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="step-comparison-grid step-comparison-grid--three">
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 16 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/Tiger,_raises_its_head._2025_16steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 8 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/Tiger,_raises_its_head._2025_8steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 4 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/Tiger,_raises_its_head._2025_4steps.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
     <button class="motion-carousel-button motion-carousel-next" type="button" aria-label="Next TurboV2 example">&#9654;</button>
   </div>
@@ -1115,98 +1014,497 @@
 </section>
 
 
-<section class="teaser">
-  <div class="container is-max-desktop", style="margin-top: 40px;">
+<section class="teaser example-section">
+  <div class="container is-max-desktop" style="margin-top: 40px;">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">MotionEcho for AD-L 8 steps, 4 steps
-        </h2>
-        <div class="content has-text-justified">
-        </div>
+        <h2 class="title is-3">MotionEcho for AD-L 8 steps, 4 steps</h2>
       </div>
     </div>
   </div>
-  <div class="adl-examples">
-    <div class="adl-example-row">
-      <div class="adl-video-card">
-        <p>Reference Video</p>
-        <video controls autoplay muted loop>
-          <source src="static/videos/camera_1_sampled_original_size.mp4" type="video/mp4">
-        </video>
+  <div id="adlCarousel" class="motion-carousel example-carousel" aria-label="AD-L MotionEcho examples">
+    <button class="motion-carousel-button motion-carousel-prev" type="button" aria-label="Previous AD-L example">&#9664;</button>
+    <div class="motion-carousel-track">
+      <div class="carousel-inner is-active">
+        <article class="dit-example-card">
+          <div class="dit-example-header">
+            <div>
+              <span class="dit-model-tag">AD-L</span>
+              <h3>A island, on the ocean, sunny day.</h3>
+            </div>
+            <div class="dit-reference-card">
+              <p>Reference Video</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/camera_1_sampled_original_size.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="step-comparison-grid step-comparison-grid--two">
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 8 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/camera_1_A_island,_on_the_ocean,_sunny_day_2025_8steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 4 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/camera_1_A_island,_on_the_ocean,_sunny_day_2025_4steps.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </article>
       </div>
-      <div class="adl-video-card">
-        <p>MotionEcho 8 steps</p>
-        <video controls autoplay muted loop>
-          <source src="static/videos/camera_1_A_island,_on_the_ocean,_sunny_day_2025_8steps.mp4" type="video/mp4">
-        </video>
+
+      <div class="carousel-inner">
+        <article class="dit-example-card">
+          <div class="dit-example-header">
+            <div>
+              <span class="dit-model-tag">AD-L</span>
+              <h3>Robot walks in the street.</h3>
+            </div>
+            <div class="dit-reference-card">
+              <p>Reference Video</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/sample_astronaut_original_size.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="step-comparison-grid step-comparison-grid--two">
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 8 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/sample_astronaut_Robot,_walks_in_the_street._59_8steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 4 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/sample_astronaut_Robot,_walks_in_the_street._59_4steps.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </article>
       </div>
-      <div class="adl-video-card">
-        <p>MotionEcho 4 steps</p>
-        <video controls autoplay muted loop>
-          <source src="static/videos/camera_1_A_island,_on_the_ocean,_sunny_day_2025_4steps.mp4" type="video/mp4">
-        </video>
+
+      <div class="carousel-inner">
+        <article class="dit-example-card">
+          <div class="dit-example-header">
+            <div>
+              <span class="dit-model-tag">AD-L</span>
+              <h3>Tiger raises its head.</h3>
+            </div>
+            <div class="dit-reference-card">
+              <p>Reference Video</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/sample_cat_original_size.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="step-comparison-grid step-comparison-grid--two">
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 8 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/sample_cat_Tiger,_raises_its_head._2025_8steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 4 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/sample_cat_Tiger,_raises_its_head._2025_4steps.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="carousel-inner">
+        <article class="dit-example-card">
+          <div class="dit-example-header">
+            <div>
+              <span class="dit-model-tag">AD-L</span>
+              <h3>A fox perched atop a wooden fence.</h3>
+            </div>
+            <div class="dit-reference-card">
+              <p>Reference Video</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/camera_pan_down_original_size.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="step-comparison-grid step-comparison-grid--two">
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 8 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/camera_pan_down_A_fox_perched_atop_a_wooden_fence_2025_8steps.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="dit-video-card dit-ours">
+              <p>MotionEcho 4 steps</p>
+              <video controls muted loop preload="metadata">
+                <source src="static/videos/camera_pan_down_A_fox_perched_atop_a_wooden_fence_2025_4steps.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
-    <div class="adl-example-row">
-      <div class="adl-video-card">
-        <p>Reference Video</p>
-        <video controls autoplay muted loop>
-          <source src="static/videos/sample_astronaut_original_size.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="adl-video-card">
-        <p>MotionEcho 8 steps</p>
-        <video controls autoplay muted loop>
-          <source src="static/videos/sample_astronaut_Robot,_walks_in_the_street._59_8steps.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="adl-video-card">
-        <p>MotionEcho 4 steps</p>
-        <video controls autoplay muted loop>
-          <source src="static/videos/sample_astronaut_Robot,_walks_in_the_street._59_4steps.mp4" type="video/mp4">
-        </video>
+    <button class="motion-carousel-button motion-carousel-next" type="button" aria-label="Next AD-L example">&#9654;</button>
+  </div>
+  <br>
+</section>
+
+
+<section class="teaser dit-section">
+  <div class="container is-max-desktop" style="margin-top: 40px;">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">MotionEcho on DiT-based Video Generators</h2>
       </div>
     </div>
-    <div class="adl-example-row">
-      <div class="adl-video-card">
-        <p>Reference Video</p>
-        <video controls autoplay muted loop>
-          <source src="static/videos/sample_cat_original_size.mp4" type="video/mp4">
-        </video>
+  </div>
+  <div id="ditCarousel" class="motion-carousel example-carousel dit-carousel" aria-label="DiT-based MotionEcho examples">
+    <button class="motion-carousel-button motion-carousel-prev" type="button" aria-label="Previous DiT example">&#9664;</button>
+    <div class="motion-carousel-track">
+      <div class="carousel-inner is-active">
+        <article class="dit-example-card">
+          <div class="dit-example-header">
+            <div>
+              <span class="dit-model-tag">CogVideoX</span>
+              <h3>Snowboarder gliding along a snowy slope.</h3>
+            </div>
+            <div class="dit-reference-card">
+              <p>Reference Video</p>
+              <video controls muted loop preload="metadata">
+                <source src="dit_examples/Q1-cogvideox/reference/original.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="dit-comparison-grid">
+            <div class="dit-method-pair">
+              <div class="dit-video-card">
+                <p>DMT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q1-cogvideox/DMT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="dit-video-card dit-ours">
+                <p>MotionEcho + DMT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q1-cogvideox/ours-DMT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="dit-method-pair">
+              <div class="dit-video-card">
+                <p>DitFlow</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q1-cogvideox/Ditflow/results.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="dit-video-card dit-ours">
+                <p>MotionEcho + DitFlow</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q1-cogvideox/ours-Ditflow/results.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="dit-method-pair">
+              <div class="dit-video-card">
+                <p>MOFT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q1-cogvideox/MOFT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="dit-video-card dit-ours">
+                <p>MotionEcho + MOFT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q1-cogvideox/ours-MOFT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
-      <div class="adl-video-card">
-        <p>MotionEcho 8 steps</p>
-        <video controls autoplay muted loop>
-          <source src="static/videos/sample_cat_Tiger,_raises_its_head._2025_8steps.mp4" type="video/mp4">
-        </video>
+
+      <div class="carousel-inner">
+        <article class="dit-example-card">
+          <div class="dit-example-header">
+            <div>
+              <span class="dit-model-tag">Wan2.1</span>
+              <h3>A duck in a river swimming.</h3>
+            </div>
+            <div class="dit-reference-card">
+              <p>Reference Video</p>
+              <video controls muted loop preload="metadata">
+                <source src="dit_examples/Q1-wan/reference/original.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="dit-comparison-grid">
+            <div class="dit-method-pair">
+              <div class="dit-video-card">
+                <p>DMT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q1-wan/DMT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="dit-video-card dit-ours">
+                <p>MotionEcho + DMT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q1-wan/ours-DMT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="dit-method-pair">
+              <div class="dit-video-card">
+                <p>DitFlow</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q1-wan/Ditflow/results.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="dit-video-card dit-ours">
+                <p>MotionEcho + DitFlow</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q1-wan/ours-Ditflow/results.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="dit-method-pair">
+              <div class="dit-video-card">
+                <p>MOFT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q1-wan/MOFT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="dit-video-card dit-ours">
+                <p>MotionEcho + MOFT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q1-wan/ours-MOFT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
-      <div class="adl-video-card">
-        <p>MotionEcho 4 steps</p>
-        <video controls autoplay muted loop>
-          <source src="static/videos/sample_cat_Tiger,_raises_its_head._2025_4steps.mp4" type="video/mp4">
-        </video>
+
+      <div class="carousel-inner">
+        <article class="dit-example-card">
+          <div class="dit-example-header">
+            <div>
+              <span class="dit-model-tag">CogVideoX</span>
+              <h3>Closeup aerial view of an ant crawling in a desert.</h3>
+            </div>
+            <div class="dit-reference-card">
+              <p>Reference Video</p>
+              <video controls muted loop preload="metadata">
+                <source src="dit_examples/Q2-cogvideox/reference/original.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="dit-comparison-grid">
+            <div class="dit-method-pair">
+              <div class="dit-video-card">
+                <p>DMT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q2-cogvideox/DMT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="dit-video-card dit-ours">
+                <p>MotionEcho + DMT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q2-cogvideox/ours-DMT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="dit-method-pair">
+              <div class="dit-video-card">
+                <p>DitFlow</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q2-cogvideox/Ditflow/results.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="dit-video-card dit-ours">
+                <p>MotionEcho + DitFlow</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q2-cogvideox/ours-Ditflow/results.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="carousel-inner">
+        <article class="dit-example-card">
+          <div class="dit-example-header">
+            <div>
+              <span class="dit-model-tag">Wan2.1</span>
+              <h3>Bear walking around in the grass.</h3>
+            </div>
+            <div class="dit-reference-card">
+              <p>Reference Video</p>
+              <video controls muted loop preload="metadata">
+                <source src="dit_examples/Q6-wan/reference/dog_49frames.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="dit-comparison-grid">
+            <div class="dit-method-pair">
+              <div class="dit-video-card">
+                <p>DMT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q6-wan/DMT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="dit-video-card dit-ours">
+                <p>MotionEcho + DMT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q6-wan/ours-DMT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="dit-method-pair">
+              <div class="dit-video-card">
+                <p>DitFlow</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q6-wan/Ditflow/results.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="dit-video-card dit-ours">
+                <p>MotionEcho + DitFlow</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q6-wan/ours-Ditflow/results.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="dit-method-pair">
+              <div class="dit-video-card">
+                <p>MOFT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q6-wan/MOFT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="dit-video-card dit-ours">
+                <p>MotionEcho + MOFT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q6-wan/ours-MOFT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="carousel-inner">
+        <article class="dit-example-card">
+          <div class="dit-example-header">
+            <div>
+              <span class="dit-model-tag">Wan2.1</span>
+              <h3>A paper boat floating in a bathtub.</h3>
+            </div>
+            <div class="dit-reference-card">
+              <p>Reference Video</p>
+              <video controls muted loop preload="metadata">
+                <source src="dit_examples/Q7-wan/reference/blackswan_49frames.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="dit-comparison-grid">
+            <div class="dit-method-pair">
+              <div class="dit-video-card">
+                <p>DMT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q7-wan/DMT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="dit-video-card dit-ours">
+                <p>MotionEcho + DMT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q7-wan/ours-DMT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="dit-method-pair">
+              <div class="dit-video-card">
+                <p>DitFlow</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q7-wan/Ditflow/results.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="dit-video-card dit-ours">
+                <p>MotionEcho + DitFlow</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q7-wan/ours-Ditflow/results.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="dit-method-pair">
+              <div class="dit-video-card">
+                <p>MOFT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q7-wan/MOFT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="dit-video-card dit-ours">
+                <p>MotionEcho + MOFT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q7-wan/ours-MOFT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="carousel-inner">
+        <article class="dit-example-card">
+          <div class="dit-example-header">
+            <div>
+              <span class="dit-model-tag">Wan2.1</span>
+              <h3>Jaguar jumping over a large rock.</h3>
+            </div>
+            <div class="dit-reference-card">
+              <p>Reference Video</p>
+              <video controls muted loop preload="metadata">
+                <source src="dit_examples/Q8-wan/reference/horsejump-high_49frames.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="dit-comparison-grid dit-comparison-grid--compact">
+            <div class="dit-method-pair">
+              <div class="dit-video-card">
+                <p>DMT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q8-wan/DMT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="dit-video-card dit-ours">
+                <p>MotionEcho + DMT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q8-wan/ours-DMT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="dit-method-pair">
+              <div class="dit-video-card">
+                <p>MOFT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q8-wan/MOFT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="dit-video-card dit-ours">
+                <p>MotionEcho + MOFT</p>
+                <video controls muted loop preload="metadata">
+                  <source src="dit_examples/Q8-wan/ours-MOFT/results.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
-    <div class="adl-example-row">
-      <div class="adl-video-card">
-        <p>Reference Video</p>
-        <video controls autoplay muted loop>
-          <source src="static/videos/camera_pan_down_original_size.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="adl-video-card">
-        <p>MotionEcho 8 steps</p>
-        <video controls autoplay muted loop>
-          <source src="static/videos/camera_pan_down_A_fox_perched_atop_a_wooden_fence_2025_8steps.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="adl-video-card">
-        <p>MotionEcho 4 steps</p>
-        <video controls autoplay muted loop>
-          <source src="static/videos/camera_pan_down_A_fox_perched_atop_a_wooden_fence_2025_4steps.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
+    <button class="motion-carousel-button motion-carousel-next" type="button" aria-label="Next DiT example">&#9654;</button>
   </div>
   <br>
 </section>
